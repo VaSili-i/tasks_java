@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.*;
 
-public class Main {
+public class ReadFileNumber {
 
     public static void main(String[] args) {
         String fileName = "input.txt";

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class MainAirline {
     private List<Airline> airlines = new ArrayList<>();
 
     public void addAirline(Airline airline) {
@@ -21,7 +21,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Main manager = new Main();
+        MainAirline manager = new MainAirline();
         manager.addAirline(new Airline("Нью-Йорк", "NY123", "Boeing 747", "10:00", List.of("Понедельник", "Среда", "Пятница")));
         manager.addAirline(new Airline("Лос-Анджелес", "LA456", "Airbus A320", "15:30", List.of("Вторник", "Четверг")));
         manager.addAirline(new Airline("Лондон", "LN789", "Boeing 777", "08:45", List.of("Понедельник", "Суббота")));

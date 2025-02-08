@@ -30,6 +30,6 @@ public class File {
 
     @Override
     public String toString() {
-        return "File{name='" + name + '\'' + '}';
+        return "File{name='" + name + "'}";
     }
 }

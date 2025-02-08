@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Directory {
     private String name;
-    private ArrayList<File> files;
+    private List<File> files;
 
     public Directory(String name) {
         this.name = name;
@@ -19,10 +20,14 @@ public class Directory {
     }
 
     public void listFiles() {
-        System.out.println("Файлы в каталоге '" + name + "':");
+        System.out.println("Файлы в директории '" + name + "':");
         for (File file : files) {
             System.out.println(file);
         }
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -40,6 +45,6 @@ public class Directory {
 
     @Override
     public String toString() {
-        return "Directory{name='" + name + '\'' + ", files=" + files + '}';
+        return "Directory{name='" + name + "', files=" + files + "}";
     }
 }

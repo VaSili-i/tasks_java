@@ -1,32 +1,21 @@
 import java.util.Scanner;
 
-public class Main {
+public class FileManagerApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Ввод имени директории
-        System.out.print("Введите имя директории (по умолчанию 'MyDirectory'): ");
+        System.out.print("Введите имя директории: ");
         String directoryName = scanner.nextLine().trim();
-        if (directoryName.isEmpty()) {
-            directoryName = "MyDirectory";
-        }
         Directory directory = new Directory(directoryName);
 
-        // Ввод имени текстового файла
-        System.out.print("Введите имя текстового файла (по умолчанию 'MyTextFile.txt'): ");
+        System.out.print("Введите имя текстового файла: ");
         String fileName = scanner.nextLine().trim();
-        if (fileName.isEmpty()) {
-            fileName = "MyTextFile.txt";
-        }
         TextFile textFile = new TextFile(fileName);
 
-        // Добавление файла в директорию
         directory.addFile(textFile);
 
-        // Вывод файлов в директории
         directory.listFiles();
 
-        // Добавление содержимого в текстовый файл
         System.out.println("Введите содержимое для текстового файла (пустая строка завершает ввод):");
         StringBuilder contentBuilder = new StringBuilder();
         while (true) {
@@ -38,32 +27,25 @@ public class Main {
         }
         textFile.addContent(contentBuilder.toString());
 
-        // Вывод содержимого текстового файла
         System.out.println("Содержимое текстового файла:");
         textFile.printContent();
 
-        // Переименование файла
-        System.out.print("Введите новое имя файла (или оставьте пустым, чтобы оставить преждней): ");
+        System.out.print("Введите новое имя файла: ");
         String newFileName = scanner.nextLine().trim();
-        if (!newFileName.isEmpty()) {
-            textFile.rename(newFileName);
-        }
+        textFile.rename(newFileName);
 
-        // Удаление содержимого текстового файла
         System.out.print("Очистить содержимое файла? (Да/Нет): ");
         String clearResponse = scanner.nextLine().trim().toLowerCase();
-        if (clearResponse.equals("Да")) {
+        if (clearResponse.equals("да")) {
             textFile.clearContent();
         }
 
-        // Удаление файла из директории
         System.out.print("Удалить файл из директории? (Да/Нет): ");
         String removeResponse = scanner.nextLine().trim().toLowerCase();
-        if (removeResponse.equals("Да")) {
+        if (removeResponse.equals("да")) {
             directory.removeFile(textFile);
         }
 
-        // Вывод файлов в директории после удаления
         directory.listFiles();
 
         scanner.close();
